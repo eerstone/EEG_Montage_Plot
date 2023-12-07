@@ -15,9 +15,15 @@ mne == 0.21, numpy,  scipy, matplotlib
 - data_load.py:  从原始电极文件，如dat文件，进行电极读取
 - montage_plot.py: 绘制电极图与电极名称
 
+## 示例图 Example Figure
+
+  
+
+![image-20231207174528371](C:\Users\Brandon_pan\AppData\Roaming\Typora\typora-user-images\image-20231207174528371.png)
 
 
 
 
- 
+
+
 
