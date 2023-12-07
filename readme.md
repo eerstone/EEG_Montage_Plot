@@ -19,9 +19,9 @@ mne == 0.21, numpy,  scipy, matplotlib
 
   
 
-![image-20231207174528371](C:\Users\Brandon_pan\AppData\Roaming\Typora\typora-user-images\image-20231207174528371.png)
+![image-20231207174528371](image-1.png)
 
-
+<img src="image-2.png" alt="image-20231207174528371" style="zoom:80%;" />
 
 
 
