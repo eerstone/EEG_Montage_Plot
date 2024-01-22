@@ -2,7 +2,7 @@
 # @Author: eerstone
 # @Date:   2023-12-07 11:39:21
 # @Last Modified by:   eerstone
-# @Last Modified time: 2023-12-07 15:46:24
+# @Last Modified time: 2023-12-08 13:01:22
 import numpy as np
 import mne
 import scipy.io as scio
@@ -60,7 +60,7 @@ def read_montagemat(filepath=None):
     导出时去掉m1 m2
     '''
     if filepath == None:
-        filepath = "Scan-SynAmps2-Quik-Cap64\\Quik-Cap Neo.mat"
+        filepath = "Scan-SynAmps2-Quik-Cap64\\Quik_Cap_Neo.mat"
     data = scio.loadmat(filepath)
     labels = read_labelmat(filepath)
     sensorpos = data["sensorpos"]

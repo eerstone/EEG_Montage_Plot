@@ -2,7 +2,7 @@
 # @Author: eerstone
 # @Date:   2023-12-07 10:30:35
 # @Last Modified by:   eerstone
-# @Last Modified time: 2023-12-07 15:47:37
+# @Last Modified time: 2024-01-22 19:20:47
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -10,9 +10,13 @@ import matplotlib as mpl
 
 def load_montage(montage_filepath=None, readfunc=None):
     from data_load import read_dat, read_montagemat
+    montage = None
     if readfunc == None:
-        readfunc = read_dat
-    montage = readfunc(montage_filepath)
+        exec("readfunc = read_dat")
+    # exec can't load readfunc due to it has no func return
+    # while eval do
+    # exec("montage = %s(montage_filepath)" % (readfunc))
+    montage = eval("%s(montage_filepath)" % (readfunc))
     return montage
 
 
@@ -51,11 +55,13 @@ def plot_montage_text(ax, ch_names, pos, show_names):
                 va='center')
             
 
-def plot_2dmontage(channel_data,  title=None, cmap_name='RdBu_r'):
+def plot_2dmontage(channel_data,  title=None, cmap_name='Blues', 
+                   montage_path=None, montage_type=None):
     '''
     给定channel data 输出其数据对应的电极图
     '''
-    montage = load_montage()
+    montage = load_montage(montage_filepath=montage_path,
+                           readfunc=montage_type)
     # show_names If an array, only the channel names in the array are shown
     fig = montage.plot(scale_factor=100,
                        kind='topomap',
@@ -70,7 +76,7 @@ def plot_2dmontage(channel_data,  title=None, cmap_name='RdBu_r'):
     channel_data_min = channel_data.min()
     # Two slope
     if cmap_name == "RdBu_r":
-        if channel_data_min > 0:
+        if channel_data_min >= 0:
             channel_data_min = -0.000000001
         norm = mpl.colors.TwoSlopeNorm(vmin=channel_data_min, vcenter=0, vmax=channel_data.max())
     else:
