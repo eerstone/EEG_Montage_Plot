@@ -2,7 +2,7 @@
 # @Author: eerstone
 # @Date:   2023-12-07 11:39:21
 # @Last Modified by:   eerstone
-# @Last Modified time: 2023-12-08 13:01:22
+# @Last Modified time: 2024-09-13 11:37:45
 import numpy as np
 import mne
 import scipy.io as scio
@@ -13,7 +13,7 @@ def read_dat(filepath=None):
     读取Neuroscan的dat文件的Sensor Location
     '''
     if filepath == None:
-        filepath = "Scan-SynAmps2-Quik-Cap64\\SynAmps2 Quik-Cap64NoM1M2.DAT"
+        filepath = "electrode_location_file\\SynAmps2 Quik-Cap64NoM1M2.DAT"
     with open(filepath, "r") as f:
         lines = f.readlines()
     electrodes = {}
@@ -60,7 +60,7 @@ def read_montagemat(filepath=None):
     导出时去掉m1 m2
     '''
     if filepath == None:
-        filepath = "Scan-SynAmps2-Quik-Cap64\\Quik_Cap_Neo.mat"
+        filepath = "electrode_location_file\\Quik_Cap_Neo.mat"
     data = scio.loadmat(filepath)
     labels = read_labelmat(filepath)
     sensorpos = data["sensorpos"]

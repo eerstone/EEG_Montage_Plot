@@ -2,7 +2,7 @@
 # @Author: eerstone
 # @Date:   2023-12-07 10:30:35
 # @Last Modified by:   eerstone
-# @Last Modified time: 2024-01-22 19:20:47
+# @Last Modified time: 2024-09-13 21:46:30
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -12,7 +12,7 @@ def load_montage(montage_filepath=None, readfunc=None):
     from data_load import read_dat, read_montagemat
     montage = None
     if readfunc == None:
-        exec("readfunc = read_dat")
+        readfunc = "read_dat"
     # exec can't load readfunc due to it has no func return
     # while eval do
     # exec("montage = %s(montage_filepath)" % (readfunc))
@@ -115,9 +115,10 @@ def plot_2dmontage(channel_data,  title=None, cmap_name='Blues',
 
 def main():
     # Example data
-    channel_data = np.random.randn((62))
+    channel_data = np.random.randn((32))
     # Example cmaps "viridis", "Reds", "Blues", "RdBu","RdBu_r"
-    fig, ax = plot_2dmontage(channel_data,"Example", cmap_name="Reds")
+    fig, ax = plot_2dmontage(channel_data,"Example", cmap_name="Reds",
+                             montage_path="electrode_location_file\\dataset_deap.DAT")
     # fig.savefig("fig.eps",format="pdf", bbox_inches='tight')
     plt.show()
 

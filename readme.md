@@ -1,3 +1,7 @@
+**更新日志**：
+
+2024.09.13 
+
 ## 简介 Introduction
 
 传统的电极展示方式可以使用eeglab工具的地形图或者mne库的montage plot。笔者出于如下需求对mne库的montage plot函数进行了魔改。
@@ -17,11 +21,11 @@ mne == 0.21, numpy,  scipy, matplotlib
 
 ## 示例图 Example Figure
 
-  
+  <img src="image-1.png" alt="电极地形图1" width="456" height="353"/>
 
-![image-20231207174528371](image-1.png)
+<img src="image-2.png" alt="电极地形图2" width="456" height="353"/>
 
-<img src="image-2.png" alt="image-20231207174528371" style="zoom:80%;" />
+
 
 
 
